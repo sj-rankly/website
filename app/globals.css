@@ -1,0 +1,298 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(0.985 0 0); /* Off-white instead of pure white */
+  --foreground: oklch(0.145 0 0); /* Rich Black #0A0A0A */
+  --card: oklch(0.985 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(0.985 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0); /* Charcoal Gray #121212 */
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.96 0 0); /* Very light gray for subtle dividers */
+  --input: oklch(0.96 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.96 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+  /* Changed brand color from warm orange to vibrant blue from brand guideline */
+  --brand: oklch(0.55 0.25 265); /* Vivid Ocean blue #3C3CFD */
+  --brand-foreground: oklch(0.985 0 0);
+
+  /* Added sophisticated black shades from palette */
+  --obsidian: oklch(0.11 0 0); /* #1C1C1C Obsidian */
+  --gunmetal: oklch(0.2 0 0); /* #323232 Gunmetal */
+  --charcoal: oklch(0.12 0 0); /* #1B1B1B Charcoal Gray */
+  --eerie: oklch(0.15 0 0); /* #252525 Eerie Black */
+  --jet: oklch(0.22 0 0); /* #3A3A3A Jet */
+
+  /* Added container background for subtle containerization */
+  --container-bg: oklch(0.995 0 0); /* Very subtle off-white for containers */
+}
+
+.dark {
+  --background: oklch(0.11 0 0); /* Obsidian #1C1C1C instead of pure black */
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.12 0 0); /* Charcoal Gray for cards */
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.11 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.11 0 0);
+  --secondary: oklch(0.15 0 0); /* Eerie Black for secondary */
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.15 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.15 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.2 0 0); /* Gunmetal for borders */
+  --input: oklch(0.15 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.12 0 0); /* Charcoal for sidebar */
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.15 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.2 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+  /* Changed brand color from warm orange to vibrant blue from brand guideline */
+  --brand: oklch(0.55 0.25 265); /* Vivid Ocean blue #3C3CFD */
+  --brand-foreground: oklch(0.985 0 0);
+
+  /* Dark mode sophisticated blacks */
+  --obsidian: oklch(0.11 0 0);
+  --gunmetal: oklch(0.2 0 0);
+  --charcoal: oklch(0.12 0 0);
+  --eerie: oklch(0.15 0 0);
+  --jet: oklch(0.22 0 0);
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-typewriter: var(--font-typewriter);
+  --font-inter: var(--font-inter);
+  --font-brand: var(--font-brand);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius: var(--radius);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+
+  /* Added sophisticated black utilities */
+  --color-obsidian: var(--obsidian);
+  --color-gunmetal: var(--gunmetal);
+  --color-charcoal: var(--charcoal);
+  --color-eerie: var(--eerie);
+  --color-jet: var(--jet);
+}
+
+/* Adding 3D perspective and radial gradient utilities for scroll tunnel */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.bg-gradient-radial {
+  background: radial-gradient(var(--tw-gradient-stops));
+}
+
+/* Custom tunnel animation utilities */
+.tunnel-item {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* Smooth scrolling for better tunnel effect */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced radial gradient for tunnel effect */
+.tunnel-overlay {
+  background: radial-gradient(circle at center, transparent 20%, hsl(var(--background)) 70%);
+}
+
+/* Adding dotted grid background pattern for technical aesthetic */
+.dotted-grid {
+  background-image: radial-gradient(circle, oklch(0.92 0 0) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Adding vertical ruler lines for technical grid aesthetic */
+.vertical-rulers {
+  position: relative;
+}
+
+.vertical-rulers::before,
+.vertical-rulers::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent 0%, oklch(0.92 0 0) 10%, oklch(0.92 0 0) 90%, transparent 100%);
+}
+
+.vertical-rulers::before {
+  left: 0;
+}
+
+.vertical-rulers::after {
+  right: 0;
+}
+
+/* Subtle divider lines between sections */
+.section-divider {
+  border-top: 1px solid oklch(0.94 0 0);
+}
+
+/* Adding aged paper texture and effects */
+.aged-paper {
+  background-image: url("/images/aged-paper.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+/* Hand-drawn underline effect - wavy and imperfect */
+.hand-underline {
+  position: relative;
+  display: inline;
+}
+
+.hand-underline::after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  bottom: -3px;
+  height: 6px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 6'%3E%3Cpath d='M0,2 Q5,1 10,2 T20,2 T30,2 T40,2 T50,2 T60,2 T70,2 T80,2 T90,2 T100,2 T110,2 T120,2 T130,2 T140,2 T150,2 T160,2 T170,2 T180,2 T190,2 T200,2' stroke='%23000' stroke-width='1.2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M0,4.5 Q5,3.5 10,4.5 T20,4.5 T30,4.5 T40,4.5 T50,4.5 T60,4.5 T70,4.5 T80,4.5 T90,4.5 T100,4.5 T110,4.5 T120,4.5 T130,4.5 T140,4.5 T150,4.5 T160,4.5 T170,4.5 T180,4.5 T190,4.5 T200,4.5' stroke='%23000' stroke-width='1.2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 200px 6px;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* Marker highlight effect - pink/coral with irregular edges */
+.hand-highlight {
+  position: relative;
+  display: inline;
+  background: linear-gradient(
+      104deg,
+      rgba(255, 182, 193, 0) 0.9%,
+      rgba(255, 182, 193, 0.5) 2.4%,
+      rgba(255, 182, 193, 0.4) 5.8%,
+      rgba(255, 182, 193, 0.35) 93%,
+      rgba(255, 182, 193, 0.4) 96%,
+      rgba(255, 182, 193, 0) 98%
+    ), linear-gradient(183deg, rgba(255, 182, 193, 0) 0%, rgba(255, 182, 193, 0.3) 7.9%, rgba(255, 182, 193, 0) 15%);
+  padding: 0 2px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  /* Logo font utility */
+  .font-logo {
+    font-family: var(--font-brand);
+  }
+  /* shadcn/ui Typography defaults */
+  h1 { @apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl; }
+  h2 { @apply scroll-m-20 text-3xl font-semibold tracking-tight first:mt-0; }
+  h3 { @apply scroll-m-20 text-2xl font-semibold tracking-tight; }
+  h4 { @apply scroll-m-20 text-xl font-semibold tracking-tight; }
+  h5 { @apply text-lg font-medium; }
+  h6 { @apply text-base uppercase tracking-wide text-muted-foreground; }
+
+  p { @apply leading-7 [&:not(:first-child)]:mt-6 text-muted-foreground; }
+  blockquote { @apply mt-6 border-l-2 pl-6 italic text-muted-foreground; }
+  table { @apply w-full; }
+  tr { @apply m-0 border-t p-0 even:bg-muted/30; }
+  th { @apply border px-4 py-2 text-left font-semibold; }
+  td { @apply border px-4 py-2 text-left; }
+  ul[type='disc'] { @apply my-6 ml-6 list-disc [&>li]:mt-2; }
+  code { @apply relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm; }
+  .lead { @apply text-xl text-muted-foreground; }
+  .large { @apply text-lg font-semibold; }
+  .small { @apply text-sm font-medium leading-none; }
+  .muted { @apply text-sm text-muted-foreground; }
+
+  a { @apply underline-offset-4 hover:underline; }
+
+  button, .btn, [role="button"] { @apply font-medium tracking-tight; }
+}
+
+/* Global container width override: set 7xl container to 1260px */
+@layer utilities {
+  .max-w-7xl {
+    max-width: 1200px !important; /* narrowed from 1280 → 1200 for a visible change */
+  }
+}
